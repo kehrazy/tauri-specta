@@ -123,7 +123,7 @@ pub trait Event: NamedType {
     {
         let meta = get_meta!(handle);
 
-        handle.emit_to(&meta.wrap_with_plugin(Self::NAME), label, self)
+        handle.emit_to(label, &meta.wrap_with_plugin(Self::NAME), self)
     }
 
     fn listen_global<F, R: Runtime>(handle: &impl Manager<R>, handler: F) -> EventId
